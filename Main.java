@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Random;
 
 /**
  * Created by User on 23.11.2016.
@@ -8,13 +9,15 @@ public class Main {
 
         DemoArray array1 = new DemoArray();
 
-        array1.lenght(10);
+        array1.lenght(20);
         array1.creat();
+        array1.addElement(4);
         array1.max();
         array1.min();
         array1.avg();
-        array1.addElement(8, 10);//довавляет элемент номер j значением value
-        array1.deleteElement(3);
+        System.out.println("Увеличенный массив" + Arrays.toString(array1.addElement(10)));
+        System.out.println("Уменьшенный массив " + Arrays.toString(array1.deleteElement(5)));
+
 
 
 

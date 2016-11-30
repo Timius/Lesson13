@@ -8,7 +8,7 @@ import java.util.Random;
 public class DemoArray {
 
     private     int[] array;
-    private int length = 0;
+    protected int length = 0;
     public DemoArray () {    //что это
         array = new int[10];
     }
@@ -23,7 +23,6 @@ public class DemoArray {
             int k = new Random().nextInt(50);
             array[i] = k;
         }
-
         System.out.println("Исходный массив" + Arrays.toString(array));
         }
 
@@ -57,36 +56,40 @@ public class DemoArray {
         return avg;
     }
 
-    protected void addElement (int j, int value){
+    protected int[] addElement (int value){
         int[] arrayN = new int[array.length+1];
 
         for (int i = 0; i < array.length; i++){
         arrayN[i]=array[i];}
-        for (int i = arrayN.length; i > j; i--) {
-            arrayN[i-1] = arrayN[i - 2];
-        }
-        arrayN[j]= value;
-        System.out.println("Увеличенный массив " + Arrays.toString(arrayN));
+        arrayN[array.length]= value;
+
+        int [] array = arrayN;
+        return array;
     }
 
     protected int [] deleteElement (int j) {
         for (int i = j; i < array.length-1; i++) {
             array[i] = array[i + 1];
         }
-
         int[] arrayD = new int[array.length - 1];
         for (int i = 0; i < arrayD.length; i++) {
            arrayD[i] = array[i];
         }
-        int [] array = arrayD; //сделал вариант с перезаписыванием исходного массива
-//        System.out.println("Уменьшенный массив " + Arrays.toString(arrayD));
-        System.out.println("Уменьшенный массив " + Arrays.toString(array));
-return array;
+        int [] array = arrayD;
+        return array;
 
     }
-
-
-
 }
 
 
+//    protected void addElement (int j, int value){
+//        int[] arrayN = new int[array.length+1];
+//
+//        for (int i = 0; i < array.length; i++){
+//        arrayN[i]=array[i];}
+//        for (int i = arrayN.length; i > j; i--) {
+//            arrayN[i-1] = arrayN[i - 2];
+//        }
+//        arrayN[j]= value;
+//        System.out.println("Увеличенный массив " + Arrays.toString(arrayN));
+//    }
